@@ -4,4 +4,4 @@ from django.shortcuts import render, HttpResponse
 
 
 def home(request):
-    return HttpResponse("docker running")
+    return HttpResponse("<h1>hello user your project is deploy successfully</h1>")
