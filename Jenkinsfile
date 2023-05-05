@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
 
-    stage('Setup') {
+    stage('Setup packages') {
       steps {
         sh 'sudo apt-get update'
         sh 'sudo apt-get install -y python3-pip python3-venv'
@@ -13,9 +13,9 @@ pipeline {
       }
     }
 
-      stage('Setup Gunicorn Setup'){
+      stage('Setup Service'){
             steps {
-                sh 'cd /var/lib/jenkins/workspace/djagno-test/scripts'
+                sh 'cd /var/lib/jenkins/workspace/djagno-test/scripts/'
                 sh 'sudo cp -rf gunicorn.socket /etc/systemd/system/'
             }
         }
