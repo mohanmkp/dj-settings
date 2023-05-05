@@ -1,11 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout') {
-      steps {
-        checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'your-credentials-id', url: 'https://github.com/your-username/your-repo.git']]])
-      }
-    }
+
     stage('Setup') {
       steps {
         sh 'sudo apt-get update'
