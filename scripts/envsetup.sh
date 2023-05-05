@@ -20,4 +20,3 @@ else
     touch logs/error.log logs/access.log
 fi
 
-sudo chmod -R 777 logs
