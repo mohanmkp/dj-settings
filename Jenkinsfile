@@ -15,10 +15,8 @@ pipeline {
 
       stage('Setup Gunicorn Setup'){
             steps {
-                sh '''
-                chmod +x gunicorn.sh
-                ./gunicorn.sh
-                '''
+                sh 'cd /var/lib/jenkins/workspace/djagno-test'
+                sh 'sudo cp -rf gunicorn.socket /etc/systemd/system/'
             }
         }
 
