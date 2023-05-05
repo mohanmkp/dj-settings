@@ -15,8 +15,20 @@ pipeline {
 
       stage('Setup Service'){
             steps {
+                def serviceContent = """[Unit]
+                Description=My Service
+
+                [Service]
+                ExecStart=/path/to/my/program
+                Restart=always
+
+                [Install]
+                WantedBy=multi-user.target
+                """
+
                 sh 'cd /var/lib/jenkins/workspace/djagno-test/scripts/'
-                sh 'sudo cp -rf gunicorn.socket /etc/systemd/system/'
+                sh "echo '''${serviceContent}''' > /etc/systemd/system/my-service.service"
+
             }
         }
 
